@@ -145,6 +145,7 @@ class HTTPClient(object):
             port=80
         print(parsed_url)
         self.connect(host,port)
+        #change from simply concatenating host to formatting parsed_url.netloc
         headers="HTTP/1.1\r\nHost: {}".format(parsed_url.netloc)+"\r\n"
         headers+="User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0\r\n"
         headers+="Connection: close\r\n\r\n"
