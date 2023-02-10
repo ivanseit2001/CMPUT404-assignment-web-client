@@ -143,9 +143,9 @@ class HTTPClient(object):
             return HTTPResponse(404,None)
         if port==None:
             port=80
-        
+        print(parsed_url)
         self.connect(host,port)
-        headers="HTTP/1.1\r\nHost: "+host+"\r\n"
+        headers="HTTP/1.1\r\nHost: {}".format(parsed_url.netloc)+"\r\n"
         headers+="User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0\r\n"
         headers+="Connection: close\r\n\r\n"
         request = "GET {} {}\r\n".format(path, headers)
